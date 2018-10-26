@@ -8,47 +8,85 @@ public class PlayerBehaviour : MonoBehaviour
 
     public Text tCount;
 
-    GameObject gOb = null;
-    Plane obPlane;
-    Vector3 mO;
+    // constants
+    private const string H_AXIS = "Horizontal";
+    private const string V_AXIS = "Vertical";
 
-   private Ray GenerateMouseRay(Vector3 touchPos)
+    // fields
+    // make available in the unity to test
+    [SerializeField]
+    private float speed = 15f;
+    [SerializeField]
+    private float xMin = -1.9f;
+    [SerializeField]
+    private float xMax = 1.9f;
+
+    private GameObject gOb;
+
+    private Rigidbody2D rb;
+   
+
+    // Use this for initialization
+    void Start()
     {
-        Vector3 mousePosFar = new Vector3(touchPos.x, touchPos.y,
-            Camera.main.farClipPlane);
-
-        Vector3 mousePosNear = new Vector3(touchPos.x, touchPos.y, Camera.main.nearClipPlane);
-
-        Vector3 mousePosF = Camera.main.ScreenToViewportPoint(mousePosFar);
-        Vector3 mousePosN = Camera.main.ScreenToViewportPoint(mousePosNear);
-
-        Ray mr = new Ray(mousePosN, mousePosF - mousePosN);
-        return mr;
+        // get the current object
+        rb = GetComponent<Rigidbody2D>();
     }
-
+    // Update is called once per view frame
     void Update()
     {
-        tCount.text = Input.touchCount.ToString();
 
-        if(Input.touchCount > 0)
+    }
+    // update with the physics engine
+    private void FixedUpdate()
+    {
+        //        Input.GetKey(KeyCode.UpArrow )
+         // get movement on the axes
+            float hMovement = Input.GetAxis(H_AXIS);
+        float vMovement = Input.GetAxis(V_AXIS);
+        // My code 
+        if (Input.touchCount > 0)
         {
-            if(Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                Ray mouseRay = GenerateMouseRay(Input.GetTouch(0).position);
-                RaycastHit hit;
-
-                if(Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit))
-                {
-                    gOb = hit.transform.gameObject;
-                    obPlane = new Plane(Camera.main.transform.forward * -1, gOb.transform.position);
-
-                    //calc touch offset m
-                    Ray mRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-                    float rayDistance;
-                    obPlane.Raycast(mRay, out rayDistance);
-
-                }
-            }
+            hMovement = Input.touches[0].deltaPosition.x;
+            vMovement = Input.touches[0].deltaPosition.y;
         }
+
+
+        // get the current body and change the velocity
+        // using the horizontal movement * speed value
+        rb.velocity = new Vector3(hMovement * speed,
+                                hMovement * speed);
+
+
+        // Mathf.Clamp
+        // work out the xValue based on the limits
+        float xValue = Mathf.Clamp(rb.position.x, xMin, xMax);
+
+        // keep position.x between two values
+        rb.position = new Vector2(xValue, rb.position.y);
+
+
+
     }
 }
+
+// Touch Position
+
+
+/* 
+ *     if (Input.touchCount > 0) {
+       
+        float target;
+        touchPosition = Input.GetTouch (0).position;
+        if (touchPosition.x > Screen.width / 2) {
+            target = 1;
+        } else {
+            target = -1;
+        }
+     
+        moveHorizontal = Mathf.MoveTowards(moveHorizontal, target, sensitivity * Time.deltaTime);
+     
+    } else {
+        moveHorizontal = (moveHorizontal < dead) ? 0 : Mathf.MoveTowards(moveHorizontal, 0, sensitivity * Time.deltaTime);
+    }
+*/
