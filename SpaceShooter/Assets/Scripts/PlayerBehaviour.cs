@@ -17,14 +17,14 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private float speed = 15f;
     [SerializeField]
-    private float xMin = -1.9f;
+    private float xMin = -3.9f;
     [SerializeField]
-    private float xMax = 1.9f;
+    private float xMax = 3.9f;
 
     private GameObject gOb;
 
     private Rigidbody2D rb;
-   
+
 
     // Use this for initialization
     void Start()
@@ -41,21 +41,21 @@ public class PlayerBehaviour : MonoBehaviour
     private void FixedUpdate()
     {
         //        Input.GetKey(KeyCode.UpArrow )
-         // get movement on the axes
-            float hMovement = Input.GetAxis(H_AXIS);
+        // get movement on the axes
+        float hMovement = Input.GetAxis(H_AXIS);
         float vMovement = Input.GetAxis(V_AXIS);
         // My code 
         if (Input.touchCount > 0)
         {
             hMovement = Input.touches[0].deltaPosition.x;
-            vMovement = Input.touches[0].deltaPosition.y;
+
         }
 
 
         // get the current body and change the velocity
-        // using the horizontal movement * speed value
-        rb.velocity = new Vector3(hMovement * speed,
-                                hMovement * speed);
+        // using the horizontal movement * speed 
+        rb.velocity = new Vector2(hMovement * 10,
+                                vMovement * 10);
 
 
         // Mathf.Clamp
@@ -69,24 +69,3 @@ public class PlayerBehaviour : MonoBehaviour
 
     }
 }
-
-// Touch Position
-
-
-/* 
- *     if (Input.touchCount > 0) {
-       
-        float target;
-        touchPosition = Input.GetTouch (0).position;
-        if (touchPosition.x > Screen.width / 2) {
-            target = 1;
-        } else {
-            target = -1;
-        }
-     
-        moveHorizontal = Mathf.MoveTowards(moveHorizontal, target, sensitivity * Time.deltaTime);
-     
-    } else {
-        moveHorizontal = (moveHorizontal < dead) ? 0 : Mathf.MoveTowards(moveHorizontal, 0, sensitivity * Time.deltaTime);
-    }
-*/
