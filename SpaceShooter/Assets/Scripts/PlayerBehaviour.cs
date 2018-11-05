@@ -43,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
         // get movement on the axes
         float hMovement = Input.GetAxis(H_AXIS);
         float vMovement = Input.GetAxis(V_AXIS);
-        // My code 
+        // My code getting touch for horizontal movement
         if (Input.touchCount > 0)
         {
             hMovement = Input.touches[0].deltaPosition.x;
@@ -52,7 +52,7 @@ public class PlayerBehaviour : MonoBehaviour
 
 
         // get the current body and change the velocity
-        // using the horizontal movement * speed 
+        // using the horizontal movement * 5 
         rb.velocity = new Vector2(hMovement * 5,
                                 vMovement * 5);
 
