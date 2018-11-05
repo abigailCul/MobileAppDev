@@ -14,8 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     // fields
     // make available in the unity to test
-    [SerializeField]
-    private float speed = 15f;
+  
     [SerializeField]
     private float xMin = -3.9f;
     [SerializeField]
@@ -54,8 +53,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         // get the current body and change the velocity
         // using the horizontal movement * speed 
-        rb.velocity = new Vector2(hMovement * 10,
-                                vMovement * 10);
+        rb.velocity = new Vector2(hMovement * 5,
+                                vMovement * 5);
 
 
         // Mathf.Clamp
