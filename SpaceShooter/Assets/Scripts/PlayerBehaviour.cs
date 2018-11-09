@@ -20,6 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private float xMax = 3.9f;
 
+
     private GameObject gOb;
 
     private Rigidbody2D rb;
@@ -39,10 +40,10 @@ public class PlayerBehaviour : MonoBehaviour
     // update with the physics engine
     private void FixedUpdate()
     {
-        //        Input.GetKey(KeyCode.UpArrow )
+        
         // get movement on the axes
         float hMovement = Input.GetAxis(H_AXIS);
-        float vMovement = Input.GetAxis(V_AXIS);
+       // float vMovement = Input.GetAxis(V_AXIS);
         // My code getting touch for horizontal movement
         if (Input.touchCount > 0)
         {
@@ -53,17 +54,16 @@ public class PlayerBehaviour : MonoBehaviour
 
         // get the current body and change the velocity
         // using the horizontal movement * 5 
-        rb.velocity = new Vector2(hMovement * 5,
-                                vMovement * 5);
+        rb.velocity = new Vector2(hMovement * 5, hMovement * 0);
 
 
         // Mathf.Clamp
         // work out the xValue based on the limits
         float xValue = Mathf.Clamp(rb.position.x, xMin, xMax);
 
+
         // keep position.x between two values
         rb.position = new Vector2(xValue, rb.position.y);
-
 
 
     }
