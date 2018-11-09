@@ -16,9 +16,9 @@ public class PlayerBehaviour : MonoBehaviour
     // make available in the unity to test
   
     [SerializeField]
-    private float xMin = -3.9f;
+    private float xMin = -5.9f;
     [SerializeField]
-    private float xMax = 3.9f;
+    private float xMax = 5.9f;
 
 
     private GameObject gOb;

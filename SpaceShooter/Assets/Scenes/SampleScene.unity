@@ -152,6 +152,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114516388420534188, guid: 6a7f9030a9c6bd24eba7b689c6ff7429,
+        type: 2}
+      propertyPath: xMin
+      value: -5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114516388420534188, guid: 6a7f9030a9c6bd24eba7b689c6ff7429,
+        type: 2}
+      propertyPath: xMax
+      value: 5.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a7f9030a9c6bd24eba7b689c6ff7429, type: 2}
   m_IsPrefabAsset: 0
@@ -182,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61db3f9f11637c48a62599de93a3302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Asteroid: {fileID: 0}
+  Asteroid: {fileID: 1681113235132132, guid: 883198c1530e082479c5d8d2c884c2c2, type: 2}
 --- !u!4 &407282627
 Transform:
   m_ObjectHideFlags: 0
