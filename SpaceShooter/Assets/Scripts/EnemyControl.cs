@@ -34,4 +34,14 @@ public class EnemyControl : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //Detect collision of the enemy ship with the player ship, or with a players bullet
+        if((col.tag == "PlayerShipTag") || (col.tag == "PlayerBulletTag"))
+        {
+            //Destroy enemy ship
+            Destroy(gameObject);
+        }
+    }
 }

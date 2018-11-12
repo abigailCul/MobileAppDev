@@ -41,6 +41,8 @@ public class WeaponsController : MonoBehaviour
         {
             CancelInvoke(SHOOT_METHOD);
         }
+
+      
     }
 
     private void Shoot()
@@ -51,5 +53,6 @@ public class WeaponsController : MonoBehaviour
         rb.velocity = Vector3.up * bulletSpeed;
        
     }
+
 
 }
