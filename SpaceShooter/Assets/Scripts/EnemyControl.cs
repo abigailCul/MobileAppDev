@@ -6,7 +6,7 @@ public class EnemyControl : MonoBehaviour
 {
 
     [SerializeField]
-    private float enemySpeed = 2f;
+    private float enemySpeed = 5f;
 
     void Start()
     {

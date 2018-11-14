@@ -75,8 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tCount: {fileID: 0}
-  xMin: -3.9
-  xMax: 3.9
+  xMin: -6.9
+  xMax: 6.9
 --- !u!114 &114523443714496088
 MonoBehaviour:
   m_ObjectHideFlags: 1
