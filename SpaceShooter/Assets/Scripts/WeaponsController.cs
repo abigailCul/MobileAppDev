@@ -15,13 +15,15 @@ public class WeaponsController : MonoBehaviour
     private BulletScript bulletPrefab;
 
     [SerializeField]
-    private float bulletSpeed = 6f;
+    private float bulletSpeed;
 
     [SerializeField]
-    private float firingRate = 0.4f;
+    private float firingRate = 0.5f;
 
     [SerializeField]
-    private AudioClip shootClip;
+    private float nextfire = 0.0f;
+
+
 
     private GameObject bulletParent;
 
@@ -33,25 +35,23 @@ public class WeaponsController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        /* if(Input.GetKeyDown(KeyCode.Space))
+         {
+             InvokeRepeating(SHOOT_METHOD, 0f, firingRate);
+         }
+         if(Input.GetKeyUp(KeyCode.Space))
+         {
+             CancelInvoke(SHOOT_METHOD);
+         }*/
+        if (Time.time > nextfire)
         {
-            InvokeRepeating(SHOOT_METHOD, 0f, firingRate);
-        }
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            CancelInvoke(SHOOT_METHOD);
-        }
+            nextfire = Time.time + firingRate;
 
-      
-    }
-
-    private void Shoot()
-    {
-        BulletScript bullet = Instantiate(bulletPrefab, bulletParent.transform);
-        bullet.transform.position = transform.position;
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.velocity = Vector3.up * bulletSpeed;
-       
+            BulletScript bullet = Instantiate(bulletPrefab, bulletParent.transform);
+            bullet.transform.position = transform.position;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = Vector3.up * bulletSpeed;
+        }
     }
 
 

@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 5
+  enemyHealth: 2
 --- !u!212 &212659581050053798
 SpriteRenderer:
   m_ObjectHideFlags: 1

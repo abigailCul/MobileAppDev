@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class EnemyControl : MonoBehaviour
 
     [SerializeField]
     private float enemySpeed = 5f;
+    public int enemyHealth;
 
     void Start()
     {
@@ -33,7 +35,10 @@ public class EnemyControl : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -42,6 +47,16 @@ public class EnemyControl : MonoBehaviour
         {
             //Destroy enemy ship
             Destroy(gameObject);
+        }
+
+        //Checking if health is less than or greater to 0
+        if (enemyHealth >= 0)
+        {
+            enemyHealth--;
+        }
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject); //destroy enemy
         }
     }
 }
