@@ -2,24 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+[System.Serializable]
+public class Boundary
+{
+    public float xMin, xMax;
+}
 
 public class PlayerBehaviour : MonoBehaviour
 {
 
+    public Boundary boundary;
     public Text tCount;
 
     // constants
     private const string H_AXIS = "Horizontal";
     private const string V_AXIS = "Vertical";
 
-    // fields
-    // make available in the unity to test
-  
-    [SerializeField]
+   
+   /* [SerializeField]
     private float xMin = -6.9f;
     [SerializeField]
     private float xMax = 6.9f;
-
+    */
 
     private GameObject gOb;
 
@@ -53,13 +57,13 @@ public class PlayerBehaviour : MonoBehaviour
 
 
         // get the current body and change the velocity
-        // using the horizontal movement * 5 
-        rb.velocity = new Vector2(hMovement * 8, hMovement * 0);
+        // using the horizontal movement * 10
+        rb.velocity = new Vector2(hMovement * 20, hMovement * 0);
 
 
         // Mathf.Clamp
         // work out the xValue based on the limits
-        float xValue = Mathf.Clamp(rb.position.x, xMin, xMax);
+        float xValue = Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax);
 
 
         // keep position.x between two values

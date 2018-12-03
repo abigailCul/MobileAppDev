@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour {
 
-    public GameObject Asteroid;
+    public Boundary boundary;
 
+    public GameObject Enemy;
 
+    [SerializeField]
     float maxSpawnRateInSeconds = 4f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         Invoke("SpawnEnemy", maxSpawnRateInSeconds);
 
-        // increase spawn rate every 30 seconds
-        InvokeRepeating("IncreaseSpawnRate", 0f, 30f);
+        // increase spawn rate every 40 seconds
+        InvokeRepeating("IncreaseSpawnRate", 0f, 40f);
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
+       
 		
 	}
 
@@ -33,9 +37,9 @@ public class EnemySpawn : MonoBehaviour {
    Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1,1));
 
    // create enemy
-   GameObject anEnemy = (GameObject)Instantiate(Asteroid);
-   anEnemy.transform.position = new Vector2(UnityEngine.Random.Range(min.x, max.x), max.y);
-   
+   GameObject anEnemy = (GameObject)Instantiate(Enemy);
+   //anEnemy.transform.position = new Vector2(UnityEngine.Random.Range(min.x, max.x), max.y);
+  
 
     //Schedule next enemy
     ScheduleNextEnemySpawn();

@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyControl : MonoBehaviour
 {
+    public Boundary boundary;
 
     [SerializeField]
-    private float enemySpeed = 5f;
+    private float enemySpeed = 3f;
     public int enemyHealth;
 
     void Start()
@@ -31,7 +33,7 @@ public class EnemyControl : MonoBehaviour
 
 
         //IF enemy leaves the screen .. enemy destryo
-        if(transform.position.y < min.y)
+        if (transform.position.y < min.y)
         {
             Destroy(gameObject);
         }
