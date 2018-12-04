@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour {
-	
-	// Update is called once per frame
-	void Update () {
-        Invoke("Destroy", 2);
+
+   
+    // Update is called once per frame
+    void Update () {
+      //  Invoke("Destroy", 2);
+
 		
 	}
 
@@ -17,6 +19,7 @@ public class BulletScript : MonoBehaviour {
         {
             //Destroy enemy ship
             Destroy(gameObject);
+            
         }
     }
 }

@@ -12,8 +12,15 @@ public class EnemyControl : MonoBehaviour
     private float enemySpeed = 3f;
     public int enemyHealth;
 
+
+    public int scoreValue; // score when enemy destroyed
+    public ScoreManager scoreManager;
+
+
     void Start()
     {
+        scoreManager = FindObjectOfType<ScoreManager>();
+
 
     }
 
@@ -45,12 +52,20 @@ public class EnemyControl : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         //Detect collision of the enemy ship with the player ship, or with a players bullet
-        if((col.tag == "PlayerShipTag") || (col.tag == "PlayerBulletTag"))
+        if((col.tag == "PlayerShipTag"))
         {
             //Destroy enemy ship
             Destroy(gameObject);
+          
         }
 
+        if ((col.tag == "PlayerBulletTag"))
+        {
+            //Destroy enemy ship
+            Destroy(gameObject);
+            // add points when ship is his
+            scoreManager.score += scoreValue = 100;
+        }
         //Checking if health is less than or greater to 0
         if (enemyHealth >= 0)
         {

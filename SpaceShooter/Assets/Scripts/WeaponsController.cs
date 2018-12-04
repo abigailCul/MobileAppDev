@@ -24,17 +24,19 @@ public class WeaponsController : MonoBehaviour
     private float nextfire = 0.0f;
 
 
-
     private GameObject bulletParent;
 
     // == private methods ==
     private void Start()
     {
         bulletParent = ParentUtils.FindBulletParent();
+      
+    
     }
 
     private void Update()
     {
+        //code to use with space key
         /* if(Input.GetKeyDown(KeyCode.Space))
          {
              InvokeRepeating(SHOOT_METHOD, 0f, firingRate);
@@ -51,6 +53,7 @@ public class WeaponsController : MonoBehaviour
             bullet.transform.position = transform.position;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.velocity = Vector3.up * bulletSpeed;
+            
         }
     }
 
