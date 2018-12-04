@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 [System.Serializable]
 public class Boundary
@@ -10,6 +11,9 @@ public class Boundary
 
 public class PlayerBehaviour : MonoBehaviour
 {
+
+
+    public GameObject RestartPanel;
 
     public Boundary boundary;
     public Text tCount;
@@ -37,10 +41,19 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per view frame
-    void Update()
-    {
+  
 
+    public void LoadMainMenu()
+    {
+       SceneManager.LoadScene("MainMenu");
     }
+
+    public void LoadSettings()
+    {
+        Debug.Log("Loading settings...");
+    }
+
+    
     // update with the physics engine
     private void FixedUpdate()
     {
@@ -74,7 +87,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "EnemyShipTag")
-        Destroy(gameObject);
+        if (col.tag == "EnemyShipTag")
+        {
+
+            RestartPanel.SetActive(true);
+            Time.timeScale = 0.0f;
+            // Destroy(gameObject);
+        }
     }
 }
