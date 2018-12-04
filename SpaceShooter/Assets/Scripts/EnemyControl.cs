@@ -62,7 +62,7 @@ public class EnemyControl : MonoBehaviour
         if ((col.tag == "PlayerBulletTag"))
         {
             //Destroy enemy ship
-            Destroy(gameObject);
+            Destroy(col.gameObject);
             // add points when ship is his
             scoreManager.score += scoreValue = 100;
         }

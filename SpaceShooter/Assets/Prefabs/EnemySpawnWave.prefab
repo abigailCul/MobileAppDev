@@ -106,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1025427431996772}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.89, y: -0.74, z: 0}
+  m_LocalPosition: {x: -2.88, y: 0.54, z: 0}
   m_LocalScale: {x: 0.894, y: 0.778, z: 1}
   m_Children: []
   m_Father: {fileID: 4060422657121110}
@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935253429810662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.7900002, z: 0}
+  m_LocalPosition: {x: 1.86, y: 0.56, z: 0}
   m_LocalScale: {x: 0.894, y: 0.778, z: 1}
   m_Children: []
   m_Father: {fileID: 4060422657121110}
@@ -132,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986814589863450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03999996, y: -0.60000014, z: 0}
+  m_LocalPosition: {x: -0.39, y: 0.32, z: 0}
   m_LocalScale: {x: 0.894, y: 0.778, z: 1}
   m_Children: []
   m_Father: {fileID: 4060422657121110}
@@ -356,8 +356,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819390e3cfa17714aa87d9d1ce88527a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boundary:
+    xMin: 0
+    xMax: 0
   enemySpeed: 5
   enemyHealth: 2
+  scoreValue: 0
+  scoreManager: {fileID: 0}
 --- !u!114 &114531310594426288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,8 +374,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819390e3cfa17714aa87d9d1ce88527a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boundary:
+    xMin: 0
+    xMax: 0
   enemySpeed: 5
   enemyHealth: 2
+  scoreValue: 0
+  scoreManager: {fileID: 0}
 --- !u!114 &114626487040764346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -382,8 +392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819390e3cfa17714aa87d9d1ce88527a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boundary:
+    xMin: 0
+    xMax: 0
   enemySpeed: 5
   enemyHealth: 2
+  scoreValue: 0
+  scoreManager: {fileID: 0}
 --- !u!212 &212205540357284148
 SpriteRenderer:
   m_ObjectHideFlags: 1
