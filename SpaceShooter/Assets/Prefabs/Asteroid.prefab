@@ -128,8 +128,6 @@ MonoBehaviour:
     xMax: 2.5
   enemySpeed: 1
   enemyHealth: 2
-  scoreValue: 200
-  scoreManager: {fileID: 0}
 --- !u!212 &212659581050053798
 SpriteRenderer:
   m_ObjectHideFlags: 1

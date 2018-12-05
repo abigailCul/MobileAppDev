@@ -25,6 +25,7 @@ public class WeaponsController : MonoBehaviour
 
 
     private GameObject bulletParent;
+    public AudioSource audioBul;
 
     // == private methods ==
     private void Start()
@@ -53,6 +54,8 @@ public class WeaponsController : MonoBehaviour
             bullet.transform.position = transform.position;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.velocity = Vector3.up * bulletSpeed;
+
+            audioBul.Play();
             
         }
     }

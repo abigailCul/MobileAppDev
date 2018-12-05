@@ -76,10 +76,7 @@ public class PlayerBehaviour : MonoBehaviour
     //look at health to see points we have
     HealthBarPlayer.value = HP;
 
-        /*if (HP == 0)
-        {
-            Destroy(gameObject);
-        }*/
+       
     }
 
 void OnTriggerEnter2D(Collider2D col)
@@ -92,7 +89,8 @@ void OnTriggerEnter2D(Collider2D col)
         if (HP == 0)
         {
             RestartPanel.SetActive(true);
-            Time.timeScale = 0.0f;
+            //To freeze the game when you die or let it run in background
+            //Time.timeScale = 0.0f;
             //Destroy(gameObject);
         }
     }
