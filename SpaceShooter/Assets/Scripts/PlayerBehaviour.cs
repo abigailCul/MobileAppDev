@@ -60,7 +60,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         // get the current body and change the velocity
         // using the horizontal movement * 10
-        rb.velocity = new Vector2(hMovement * 20, hMovement * 0);
+        rb.velocity = new Vector2(hMovement * 10, hMovement * 0);
 
 
         // Mathf.Clamp
