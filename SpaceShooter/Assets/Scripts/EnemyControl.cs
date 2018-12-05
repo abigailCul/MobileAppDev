@@ -64,7 +64,7 @@ public class EnemyControl : MonoBehaviour
             //Destroy enemy ship
             Destroy(col.gameObject);
             // add points when ship is his
-            scoreManager.score += scoreValue = 100;
+            scoreManager.score += scoreValue = 200;
         }
         //Checking if health is less than or greater to 0
         if (enemyHealth >= 0)

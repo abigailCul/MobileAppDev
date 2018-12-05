@@ -41,17 +41,6 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per view frame
-  
-
-    public void LoadMainMenu()
-    {
-       SceneManager.LoadScene("MainMenu");
-    }
-
-    public void LoadSettings()
-    {
-        Debug.Log("Loading settings...");
-    }
 
     
     // update with the physics engine
