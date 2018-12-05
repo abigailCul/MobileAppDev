@@ -15,12 +15,13 @@ public class CoinCollector : MonoBehaviour {
    
         // find the text
         coin = PlayerPrefs.GetInt("coin", 0);
+        coin = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // updating the coin text as number of coins increases
-         coinCount.text = coin.ToString(); 
+        // coinCount.text = coin.ToString(); 
 
     }
     void UpdateCoins()

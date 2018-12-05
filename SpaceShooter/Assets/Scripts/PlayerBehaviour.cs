@@ -18,6 +18,8 @@ public class PlayerBehaviour : MonoBehaviour
     public Boundary boundary;
     public Text tCount;
 
+    public Slider HealthBarPlayer;
+    public int HP;
     // constants
     private const string H_AXIS = "Horizontal";
     private const string V_AXIS = "Vertical";
@@ -71,17 +73,27 @@ public class PlayerBehaviour : MonoBehaviour
         // keep position.x between two values
         rb.position = new Vector2(xValue, rb.position.y);
 
+    //look at health to see points we have
+    HealthBarPlayer.value = HP;
 
+        /*if (HP == 0)
+        {
+            Destroy(gameObject);
+        }*/
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "EnemyShipTag")
+        if (col.tag == "EnemyShipTag" )
         {
-
+            HP--;
+            
+        }
+        if (HP == 0)
+        {
             RestartPanel.SetActive(true);
             Time.timeScale = 0.0f;
-            // Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

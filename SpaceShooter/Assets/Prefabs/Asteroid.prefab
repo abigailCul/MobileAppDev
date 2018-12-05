@@ -126,7 +126,7 @@ MonoBehaviour:
   boundary:
     xMin: 2.5
     xMax: 2.5
-  enemySpeed: 3
+  enemySpeed: 1
   enemyHealth: 2
   scoreValue: 200
   scoreManager: {fileID: 0}
