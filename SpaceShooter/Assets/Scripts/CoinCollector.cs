@@ -15,7 +15,7 @@ public class CoinCollector : MonoBehaviour {
    
         // find the text
         coin = PlayerPrefs.GetInt("coin", 0);
-        coin = 0;
+        //coin = 0;
 	}
 	
 	// Update is called once per frame

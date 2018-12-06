@@ -20,6 +20,11 @@ public class RestartMenu : MonoBehaviour {
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void LoadGameLevel2()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+
     public void LoadSettings()
     {
         Debug.Log("Loading settings...");

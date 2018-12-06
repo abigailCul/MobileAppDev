@@ -90,7 +90,7 @@ void OnTriggerEnter2D(Collider2D col)
         {
             RestartPanel.SetActive(true);
             //To freeze the game when you die or let it run in background
-            //Time.timeScale = 0.0f;
+            Time.timeScale = 0.0f;
             //Destroy(gameObject);
         }
     }
